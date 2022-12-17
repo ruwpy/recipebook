@@ -1,15 +1,36 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
+  font-weight: 500;
 }
 
 body {
   margin: 0;
-  font-family: 'Rubik', sans-serif;
+  font-family: var(--font);
   background: var(--color-white);
 }
 
+input {
+  font-family: var(--font);
+  border: none;
+  outline: 2px solid transparent;
+  padding: 0 2rem;
+  border-radius: 15px;
+  transition: outline 200ms;
+
+  &:focus {
+    outline: 2px solid #FF8787;
+  }
+}
+
 .container {
-  width: 1140px;
+  width: 100%;
+  max-width: 1360px;
   margin-inline: auto;
+}
+
+.hide-for-mobile {
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 }

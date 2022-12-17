@@ -1,15 +1,14 @@
+import Navbar from "./components/Navbar/Navbar";
+
 export default function App() {
   return (
     <>
-      <header>
-
+      <header class="header">
+        <Navbar />
       </header>
-      <main>
-
+      <main class="main">
+        
       </main>
-      <footer>
-
-      </footer>
     </>
   );
 }
