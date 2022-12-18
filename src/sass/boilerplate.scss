@@ -13,14 +13,9 @@ body {
 input {
   font-family: var(--font);
   border: none;
-  outline: 2px solid transparent;
   padding: 0 2rem;
   border-radius: 15px;
-  transition: outline 200ms;
-
-  &:focus {
-    outline: 2px solid #FF8787;
-  }
+  outline: none;
 }
 
 .container {
