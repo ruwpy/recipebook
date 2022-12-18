@@ -1,4 +1,6 @@
 import Navbar from "./components/Navbar/Navbar";
+import Recipes from "./components/Recipes/Recipes";
+import './App.scss'
 
 export default function App() {
   return (
@@ -7,7 +9,7 @@ export default function App() {
         <Navbar />
       </header>
       <main class="main">
-        
+        <Recipes />
       </main>
     </>
   );

@@ -1,0 +1,7 @@
+.recipes {
+  margin-inline: 2rem;
+
+  @media screen and (min-width:1440px) {
+    margin-inline: 10rem;
+  }
+}
