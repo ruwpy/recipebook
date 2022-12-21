@@ -2,21 +2,21 @@ import './Navbar.scss'
 import addrecipe from '/addrecipe.svg'
 import book from '/book.svg'
 import user from '/user.svg'
-import { A } from '@solidjs/router'
+import { Link } from 'react-router-dom'
 
 export default function Navbar() {
   return (
-    <nav class="nav">
+    <nav className="nav">
       <div className="nav__menu">
-        <A href='/'>
-          <img class='nav__link-image' src={book} alt="recipe book icon" />
-        </A>
-        <A href='/profile'>
-          <img class='nav__link-image'  src={user} alt="add recipe icon" />
-        </A>
-        <A href='/createrecipe'>
-          <img class='nav__link-image'  src={addrecipe} alt="add recipe icon" />
-        </A>
+        <Link to='/'>
+          <img className='nav__link-image' src={book} alt="recipe book icon" />
+        </Link>
+        <Link to='/profile'>
+          <img className='nav__link-image'  src={user} alt="add recipe icon" />
+        </Link>
+        <Link to='/createrecipe'>
+          <img className='nav__link-image'  src={addrecipe} alt="add recipe icon" />
+        </Link>
       </div>
     </nav>
   )

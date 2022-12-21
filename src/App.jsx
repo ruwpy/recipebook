@@ -2,12 +2,12 @@ import Search from "./components/Search/Search";
 import Navbar from "./components/Navbar/Navbar";
 import Recipes from "./components/Recipes/Recipes";
 import './App.scss'
-import { Router, Routes, Route } from '@solidjs/router';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export default function App() {
   return (
-    <Router>
-      <header class="header">
+    <BrowserRouter>
+      <header className="header">
         <Search />
         <Navbar />
       </header>
@@ -16,6 +16,6 @@ export default function App() {
         <Route path='/profile' element={<Recipes />} />
         <Route path='/createrecipe' element={<Recipes />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
