@@ -1,7 +1,11 @@
 html {
   font-size: 62.5%;
-  font-weight: 500;
   box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -20,7 +24,6 @@ input {
   border-radius: 15px;
   outline: none;
   width: 100%;
-  box-sizing: border-box;
 }
 
 h1, h2, h3 {
