@@ -1,26 +1,22 @@
-import { createEffect, createSignal } from 'solid-js'
-import logo from '/logo.png'
 import './Navbar.scss'
+import addrecipe from '/addrecipe.svg'
+import book from '/book.svg'
+import user from '/user.svg'
+import { A } from '@solidjs/router'
 
 export default function Navbar() {
-
-  const [inputValue, setInputValue] = createSignal('')
-  const [isInputActive, setIsInputActive] = createSignal(false)
-
   return (
-    <nav class="nav container">
-      <div className={`nav__inner${isInputActive() ? ' active' : ''}`}>
-        <img class='nav__logo hide-for-mobile' src={logo} alt="logo" />
-        <input
-          class='nav__input' 
-          type="text"
-          maxLength={64}
-          onFocus={() => setIsInputActive(true)}
-          onBlur={() => setIsInputActive(false)}
-          onInput={(e) => setInputValue(e.target.value)}
-          value={inputValue()}
-          placeholder='введите название блюда...'
-        />
+    <nav class="nav">
+      <div className="nav__menu">
+        <A href='/'>
+          <img class='nav__link-image' src={book} alt="recipe book icon" />
+        </A>
+        <A href='/profile'>
+          <img class='nav__link-image'  src={user} alt="add recipe icon" />
+        </A>
+        <A href='/createrecipe'>
+          <img class='nav__link-image'  src={addrecipe} alt="add recipe icon" />
+        </A>
       </div>
     </nav>
   )
