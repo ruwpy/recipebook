@@ -1,0 +1,34 @@
+.loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+
+  &__spinner {
+    display: block;
+    background: transparent;
+    width: 2rem;
+    height: 2rem;
+    border: 8px solid var(--color-light-red);
+    border-bottom: 8px solid transparent;
+    border-radius: 50%;
+    animation: rotate 1000ms infinite;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
