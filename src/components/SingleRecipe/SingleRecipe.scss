@@ -1,12 +1,16 @@
 .recipe {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0rem;
   padding: 1rem;
   background: var(--color-white);
   border-radius: 20px;
   cursor: pointer;
   position: relative;
+
+  &__container {
+    position: relative;
+  }
   
   &__image {
     height: 30rem;
@@ -16,13 +20,29 @@
   }
 
   &__title {
+    margin: 1rem 0 0.25rem;
     font-size: 1.6rem;
+    font-weight: 600;
   }
 
+  &__author {
+    font-size: 1.4rem;
+    opacity: 0.75;
+    margin-bottom: 1rem;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.4rem;
+    align-items: center;
+    opacity: 0.75;
+    font-weight: 600;
+  }
+  
   &__rating {
     display: inline-flex;
-    opacity: 0.7;
-    font-size: 1.4rem;
+    justify-content: end;
     gap: 1rem;
 
     > span {
@@ -33,44 +53,51 @@
 
   &__favorite {
     position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
+    top: 1rem;
+    right: 1rem;
   }
 
-  &__heart {
-    width: 4rem;
-    height: 4rem;
-    transition: transform 150ms;
-    border-radius: 50px;
-    padding: 0.5rem;
-    user-select: none;
-
-    &:hover {
-      transform: scale(1.07);
-    }
-
-    &:active {
-      transform: scale(0.95);
-    }
-
-    &--outline {
-      fill: white;
-      transition: fill 200ms;
-      
-      &.favorite {
-        fill: var(--color-light-red);
-      }
-    }
+  &__add {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
     
-    &--inside {
-      fill: var(--color-black);
-      opacity: 0.3;
-      transition: fill 200ms, opacity 200ms;
+    &--icon {
+      top: 0rem;
+      right: 0rem;
+      position: absolute;
+      width: 4rem;
+      height: 4rem;
+      padding: 0.25rem;
+      border-radius: 15px;
+      background: var(--color-white);
+      transition: transform 50ms;
 
-      &.favorite {
-        fill: var(--color-light-red);
-        opacity: 1;
+      &.hidden {
+        display: none;
       }
+
+      &.not-added {
+        &:active {
+          transform: scale(1.2);
+        }
+      }
+
+    }
+  }
+
+
+  &__hot {
+    position: absolute;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    background: var(--color-white);
+    border-radius: 50px;
+    line-height: 0;
+    padding: 0.7rem;
+
+    &:hover > span {
+      opacity: 1;
     }
   }
 }
