@@ -1,0 +1,18 @@
+.description-on-hover {
+  position: absolute;
+  background: var(--color-white);
+  padding: 1.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 10px;
+  width: max-content;
+  color: var(--color-black);
+  opacity: 0;
+  transition: all 200ms;
+  z-index: 50;
+  pointer-events: none;
+
+  &.left {
+    left: -12.5rem;
+  }
+}
