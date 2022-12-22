@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import SingleRecipe from "../SingleRecipe/SingleRecipe"
-import data from './data'
+import { supabase } from "../../supabase"
 import './Recipes.scss'
 
 export default function Recipes() {
@@ -8,7 +8,14 @@ export default function Recipes() {
   const [recipes, setRecipes] = useState([])
 
   useEffect(() => {
-    setRecipes(data)
+    async function getRecipes() {
+      const {data, error} = await supabase
+        .from('recipes')
+        .select()
+      setRecipes(data)
+    }
+
+    getRecipes()
   }, [])
 
   return (
