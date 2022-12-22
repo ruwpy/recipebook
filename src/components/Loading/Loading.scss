@@ -14,9 +14,9 @@
   &__spinner {
     display: block;
     background: transparent;
-    width: 2rem;
-    height: 2rem;
-    border: 8px solid var(--color-light-red);
+    width: 3rem;
+    height: 3rem;
+    border: 6px solid var(--color-light-red);
     border-bottom: 8px solid transparent;
     border-radius: 50%;
     animation: rotate 1000ms infinite;

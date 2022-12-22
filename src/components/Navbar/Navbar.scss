@@ -4,19 +4,24 @@
   bottom: 1rem;
   z-index: 99;
   pointer-events: none;
+  user-select: none;
 
   &__menu {
     pointer-events: all;
     display: flex;
     justify-content: space-around;
     margin-inline: auto;
-    padding: 1rem;
+    padding: 0.5rem;
     background: var(--color-white);
     outline: 2px solid var(--color-very-light-grey);
     max-width: fit-content;
     gap: 2rem;
     border-radius: 10px;
-    min-height: 4rem;
+    min-height: 3rem;
+  }
+
+  &__link {
+    cursor: pointer;
   }
 
   &__link-image {

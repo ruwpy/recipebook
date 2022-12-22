@@ -2,7 +2,6 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  font-size: 1.6rem;
   background: var(--color-white);
   padding: 7rem 2rem 2rem;
   border-radius: 20px;
@@ -10,7 +9,6 @@
   top: 1rem;
   
   @media screen and (min-width: 768px) {
-    font-size: 1.4rem;
     margin-inline: auto;
     max-width: 510px;
     padding-top: 6rem;
@@ -38,8 +36,8 @@
     padding: 0.5rem 0.5rem;
     width: 100%;
     font-weight: 500;
-    font-size: 1.4rem;
     overflow-x: scroll;
+    font-size: 1.4rem;
 
     @media screen and (min-width: 1024px) {
       overflow-x: hidden;
