@@ -1,0 +1,35 @@
+.btn {
+  font-family: var(--font);
+  background: none;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 0;
+  outline: 0;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 150ms;
+  font-size: 1.6rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+
+  &.icon {
+    padding: 1rem;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  &--primary {
+    background: var(--color-light-red);
+    color: var(--color-white);
+  }
+
+  &--secondary {
+    background: var(--color-white);
+    color: var(--color-black);
+    outline: 2px solid var(--color-very-light-grey);
+  }
+}
