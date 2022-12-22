@@ -1,0 +1,27 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: var(--color-black-low-opacity);
+  z-index: 11111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__content {
+    position: fixed;
+    left: 2rem;
+    right: 2rem;
+    height: fit-content;
+    padding: 1.5rem 0;
+    background: var(--color-white);
+    border-radius: 30px;
+
+    @media screen and (min-width: 768px) {
+      width: 50rem;
+      margin-inline: auto;
+    }
+  }
+}
