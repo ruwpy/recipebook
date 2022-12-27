@@ -11,8 +11,19 @@
   transition: all 200ms;
   z-index: 50;
   pointer-events: none;
+  box-shadow: var(--shadow);
 
   &.left {
     left: -12.5rem;
+  }
+
+  &.top {
+    left: 50%;
+    transform: translateX(-50%);
+    top: -4rem;
+  }
+
+  @media screen and (max-width: 1024px) {
+    display: none;
   }
 }

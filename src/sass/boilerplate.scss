@@ -15,9 +15,10 @@ body {
   color: var(--color-dark-grey);
   -webkit-tap-highlight-color: transparent;
   font-size: 1.6rem;
+  font-weight: 500;
 }
 
-input {
+input, textarea {
   font-family: var(--font);
   font-size: 1.4rem;
   border: none;
@@ -25,17 +26,47 @@ input {
   border-radius: 15px;
   outline: none;
   width: 100%;
+  font-weight: 500;
+
+  @media screen and (min-width: 1024px) {
+    font-size: 1.6rem;
+  }
 }
 
-h1, h2, h3 {
+p, h1, h2, h3 {
   margin: 0;
   padding: 0;
+}
+
+textarea {
+  resize: none;
+  height: 8rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .container {
   width: 100%;
   max-width: 1360px;
   margin-inline: auto;
+}
+
+.heading {
+  margin-bottom: 2rem;
+}
+
+.separator {
+  display: block;
+  height: 2px;
+  background: var(--color-very-light-grey);
+}
+
+.main {
+  margin-inline: 2rem;
 }
 
 .hide-for-mobile {

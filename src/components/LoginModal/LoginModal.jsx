@@ -16,8 +16,10 @@ export default function LoginModal({isLoginModalActive, setIsLoginModalActive}) 
   return (
     <Modal isModalActive={isLoginModalActive} setIsModalActive={setIsLoginModalActive}>
       <div className="loginmodal">
-        <h2>Добро пожаловать на <span className="hl">RecipeBook</span></h2>
-        <p>для просмотра профиля вам необходимо войти в свою учетную запись</p>
+        <div className="loginmodal__top">
+          <h2>Добро пожаловать на <span className="hl">RecipeBook</span></h2>
+          <p>для просмотра профиля вам необходимо войти в свою учетную запись</p>
+        </div>
         <Button type='secondary' hasIcon={true} onClick={() => Login()}>
           <span>Войти с помощью</span>
           <img src={google} alt="google icon" />
