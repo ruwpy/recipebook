@@ -2,21 +2,34 @@ import { useEffect, useState } from "react"
 import SingleRecipe from "../SingleRecipe/SingleRecipe"
 import { supabase } from "../../supabase"
 import './Recipes.scss'
+import { useSelector } from "react-redux"
 
 export default function Recipes() {
 
   const [recipes, setRecipes] = useState([])
+  const searchQuery = useSelector(state => state.search.query)
 
   useEffect(() => {
     async function getRecipes() {
-      const {data, error} = await supabase
-        .from('recipes')
-        .select()
-      setRecipes(data)
+      if(searchQuery) {
+        const {data, error} = await supabase
+          .from('global-recipes')
+          .select()
+          .textSearch('title', `'${searchQuery}'`)
+          console.log(data);
+          
+        setRecipes(data)
+      } else {
+        const {data, error} = await supabase
+          .from('global-recipes')
+          .select()
+
+        setRecipes(data)
+      }
     }
 
     getRecipes()
-  }, [])
+  }, [searchQuery])
 
   return (
     <main className="main">
