@@ -1,0 +1,54 @@
+.switcher {
+  position: fixed;
+  bottom: 2rem;
+  left: 1.75rem;
+  width: 6.5rem;
+  height: 3.5rem;
+  border-radius: 50px;
+  box-shadow: var(--shadow);
+  padding: 0.8rem;
+  outline: 2px solid var(--outline-color);
+  cursor: pointer;
+  transition: outline 150ms;
+  background: var(--content-color);
+  z-index: 50;
+
+  @media screen and (min-width: 768px) {
+    bottom: inherit;
+    left: inherit;
+    top: 1.5rem;
+    right: 3rem;
+  }
+
+  &__round {
+    width: 1.9rem;
+    height: 100%;
+    border-radius: 50px;
+    background: var(--background-color-inverse);
+    box-shadow: var(--inner-shadow);
+    transition: all 200ms;
+    transform: translateX(3rem);
+    z-index: 2;
+
+    &.active {
+      transform: inherit;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 200ms;
+    left: inherit;
+    right: inherit;
+
+    &--sun {
+      left: 0.7rem;
+    }
+
+    &--moon {
+      left: 3.5rem;
+    }
+  }
+}
