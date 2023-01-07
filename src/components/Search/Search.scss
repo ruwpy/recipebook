@@ -2,20 +2,22 @@
   position: fixed;
   width: 100%;
   z-index: 100;
+  pointer-events: none;
   
   &__form {
-    background: var(--color-white);
+    background: var(--content-color);
     border-radius: 10px;
     display: flex;
     gap: 1.5rem;
     justify-content: space-between;
     margin-inline: 2rem;
     margin-top: 1rem;
-    border: 1px solid var(--color-very-light-grey);
+    outline: 2px solid var(--outline-color);
     padding: 1rem 0;
     position: relative;
-    transition: outline 200ms;
+    transition: all 150ms;
     z-index: 99;
+    pointer-events: all;
     
     @media screen and (min-width: 768px) {
       max-width: 550px;
@@ -70,7 +72,8 @@
     background-color: rgba(0,0,0,.4);
     opacity: 0;
     visibility: hidden;
-    transition: opacity 300ms, visibility 300ms;
+    transition: opacity 150ms, visibility 150ms;
+    pointer-events: all;
 
     &.active {
       opacity: 1;

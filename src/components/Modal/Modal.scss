@@ -13,18 +13,31 @@
   user-select: none;
 
   &__content {
-    position: fixed;
-    left: 2rem;
-    right: 2rem;
-    height: fit-content;
-    padding: 1.5rem 0;
-    background: var(--color-white);
-    border-radius: 30px;
-    user-select: text;
+  padding: 3rem 4rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 3rem;
+  text-align: center;
+  background: var(--background-color);
+  border-radius: 30px;
+  user-select: text;
+
+    &--initial {
+      padding: 3rem 4rem;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      gap: 3rem;
+      text-align: center;
+      background: var(--background-color);
+      border-radius: 30px;
+    }
 
     @media screen and (min-width: 768px) {
       width: 50rem;
       margin-inline: auto;
     }
   }
+
 }

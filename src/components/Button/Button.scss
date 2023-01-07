@@ -7,12 +7,16 @@
   outline: 0;
   font-weight: 500;
   cursor: pointer;
-  transition: all 150ms;
+  transition: all 50ms;
   font-size: 1.6rem;
   display: flex;
   gap: 1rem;
   justify-content: center;
   align-items: center;
+
+  &.small {
+    padding: 0.8rem 1rem;
+  }
 
   &.icon {
     padding: 1rem;
@@ -28,8 +32,8 @@
   }
 
   &--secondary {
-    background: var(--color-white);
-    color: var(--color-black);
-    outline: 2px solid var(--color-very-light-grey);
+    background: var(--content-color);
+    color: var(--font-color);
+    outline: 2px solid var(--outline-color);
   }
 }

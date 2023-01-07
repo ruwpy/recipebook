@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background: var(--color-white);
+  background: var(--background-color);
   padding: 7rem 2rem 2rem;
   border-radius: 20px;
   margin-inline: 2rem;
@@ -15,9 +15,10 @@
   }
   
   &__input {
-    padding: 1rem 1rem;
+    padding: 1rem 2rem;
     border-radius: 0;
-    border-bottom: 2px solid var(--color-very-light-grey);
+    border-bottom: 2px solid var(--outline-color);
+    border-radius: 15px;
   }
 
   
@@ -38,7 +39,7 @@
     width: 100%;
     font-weight: 500;
     overflow-x: scroll;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
 
     @media screen and (min-width: 1024px) {
       overflow-x: hidden;
@@ -51,22 +52,18 @@
   }
   
   &__meal {
-    background: var(--color-white);
+    background: var(--content-color);
     border-radius: 5px;
-    outline: 2px solid var(--color-very-light-grey);
-    padding: 0.5rem 0.6rem;
+    outline: 2px solid var(--outline-color);
+    padding: 0.5rem 0.8rem;
     text-align: center;
     width: fit-content;
     cursor: pointer;
-    transition: transform 150ms, outline-color 150ms;
+    transition: outline-color 150ms;
     user-select: none;
 
     &.selected {
       outline-color: var(--color-light-red);
-    }
-
-    &:active {
-      transform: scale(0.95);
     }
   }
 }

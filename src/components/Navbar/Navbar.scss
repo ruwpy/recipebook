@@ -12,12 +12,13 @@
     justify-content: space-around;
     margin-inline: auto;
     padding: 0.5rem;
-    background: var(--color-white);
-    outline: 2px solid var(--color-very-light-grey);
+    background: var(--background-color);
+    outline: 2px solid var(--outline-color);
     max-width: fit-content;
     gap: 2rem;
     border-radius: 10px;
     min-height: 3rem;
+    transition: all 150ms;
   }
 
   &__link {
