@@ -1,0 +1,143 @@
+.recipepage {
+  &__top {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-dark-grey);
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+  }
+  
+  &__title-desc {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    padding: 3rem;
+    border-radius: 30px;
+    text-align: center;
+    gap: 2rem;
+    max-width: 60rem;
+  }
+  
+  &__image {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+    -webkit-filter: blur(0.3rem) contrast(110%);
+    filter: blur(0.3rem) contrast(110%);
+    opacity: 0.7;
+    transform: scale(1.03);
+
+    @media screen and (min-width: 768px) {
+      max-height: 80rem;
+    }
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 4.5rem;
+    color: var(--color-white);
+    line-height: 0.95;
+
+    @media screen and (min-width: 768px) {
+      font-size: 6.2rem;
+    }
+  }
+  
+  &__timetocook {
+    color: var(--color-white);
+
+    @media screen and (min-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  &__tags {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  &__cuisine, &__mealtype {
+    padding: 1.5rem 2rem;
+    background: var(--content-color);
+    border-radius: 30px;
+  }
+ 
+  &__container {
+    margin-top: 4rem;
+    margin-bottom: 20rem;
+    display: flex;
+    gap: 5rem;
+
+    &--left {
+
+    }
+
+    &--right {
+
+    }
+  }
+
+
+  &__ingridients {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    max-width: 35rem;
+    gap: 1.5rem;
+  }
+
+  &__ingridient {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    padding: 2rem 3rem;
+    background: var(--content-color);
+    border-radius: 30px;
+
+    &--dot {
+      width: 1.25rem;
+      height: 1.25rem;
+      background: var(--color-light-red);
+      border-radius: 50px;
+      flex-shrink: 0;
+    }
+  }
+
+  &__instructions {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    list-style: none;
+  }
+
+  &__instruction {
+    display: flex;
+    gap: 1.5rem;
+    position: relative;
+    font-size: 1.8rem;
+    border-radius: 30px;
+    
+    &:hover &--number {
+      color: var(--color-light-red);
+    }
+
+    &--number {
+      position: relative;
+      font-size: 2.6rem;
+      width: 3rem;
+      flex-shrink: 0;
+      text-align: end;
+      color: var(--color-grey);
+      top: -0.3rem;
+      transition: all 200ms;
+    }
+
+    &--value {
+      font-size: 2rem;
+    }
+  }
+}
