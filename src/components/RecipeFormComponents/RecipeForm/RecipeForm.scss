@@ -1,0 +1,201 @@
+.recipeform {
+  &__image {
+    position: absolute;
+    width: 100%;
+    border-radius: 20px;
+    width: 25rem;
+    height: 25rem;
+    object-fit: cover;
+  }
+
+  &__image-upload {
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__image-input {
+    display: none;
+  }
+
+  &__image-label {
+    position: static;
+    background: var(--color-black-low-opacity);
+    color: var(--color-white);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    transform: none;
+    cursor: pointer;
+    border-radius: 20px;
+    width: 25rem;
+    height: 25rem;
+    padding: 2.5rem;
+    text-align: center;
+    z-index: 5;
+    font-size: 1.7rem;
+    transition: opacity 200ms;
+
+    &.disabled {
+      opacity: 0;
+    }
+    
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+    flex-direction: column;
+    position: relative;
+
+    @media screen and (min-width: 1024px) {
+      flex-direction: row;
+    }
+
+    &--right {
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      width: 100%;
+    }
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-radius: 15px;
+    gap: 1rem;
+  }
+
+  &__add {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: color 100ms;
+    margin-top: 0.5rem;
+
+    &:hover {
+      color: var(--color-light-red);
+    }
+  }
+
+  &__single-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 4rem 0.5rem 1rem;
+    box-shadow: var(--shadow);
+    border-radius: 15px;
+    background: var(--content-color);
+    transition: background 150ms;
+
+    &.instruction {
+      padding-left: 6rem;
+    }
+
+    &.active {
+      border-color: var(--color-light-red);
+    }
+  }
+
+  &__label {
+    position: absolute;
+    left: 2rem;
+    color: var(--color-grey);
+  }
+
+  &__delete-item {
+    position: absolute;
+    cursor: pointer;
+    padding: 0.5rem;
+    right: 1rem;
+    border-radius: 8px;
+    border: 2px solid var(--color-very-light-grey);
+    transition: all 150ms;
+    line-height: 0;
+    background: var(--color-white);
+    user-select: none;
+
+    &:hover {
+      border-color: var(--color-light-red);
+    }
+
+    &:hover .description-on-hover {
+      opacity: 1;
+    }
+  }
+
+  &__delete-icon {
+    width: 2.2rem;
+  }
+  
+  &__buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__submit {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+
+    
+    > span {
+      max-width: 20rem;
+
+      @media screen and (min-width: 1440px) {
+        max-width: fit-content;  
+      }
+    }
+  }
+
+  &__range {
+    margin-top: 6rem;
+    margin-inline: 3rem;
+    position: relative;
+    display: flex;
+    font-size: 1.4rem;
+    color: var(--color-grey);
+    white-space: nowrap;
+    align-items: center;
+  }
+
+  &__time {
+    width: fit-content;
+    text-align: center;
+    font-size: 1.6rem;
+    border: 2px solid var(--color-light-red);
+    background: var(--content-color);
+    color: var(--font-color);
+    padding: 0.8rem 0.8rem;
+    border-radius: 10px;
+    line-height: 1;
+    position: absolute;
+    transform: translateY(-3rem) translateX(-3rem);
+    transition: background 150ms, color 150ms, left 100ms;
+  }
+
+  &__spicy-button {
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background 150ms, border 150ms;
+    border: 2px solid var(--outline-color);
+    user-select: none;
+    background: var(--content-color);
+
+    &.active {
+      border: 2px solid var(--color-light-red);
+    }
+  }
+}
