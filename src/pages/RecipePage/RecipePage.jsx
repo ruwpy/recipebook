@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { supabase } from '../../supabase'
 import Loading from '../../components/Loading/Loading'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import Curtain from '../../components/Curtain/Curtain'
 
 export default function RecipePage() {
 
@@ -33,6 +34,15 @@ export default function RecipePage() {
 
   console.log(recipeData);
 
+  const scaleVars = {
+    initial: {
+      scale: 1
+    },
+    animate: {
+      scale: 1.05
+    }
+  }
+
   return !recipeData ? (
     <Loading />
   ) : (
@@ -50,8 +60,26 @@ export default function RecipePage() {
             {recipeData.title}
           </span>
           <span className='recipepage__tags'>
-            <span className='recipepage__cuisine'>{recipeData.cuisine}</span>
-            <span className='recipepage__mealtype'>{recipeData.meal_type}</span>
+            <motion.span 
+              className='recipepage__cuisine'
+              whileHover='animate'
+              initial='initial'
+              variants={scaleVars}
+              transition={{ type: 'spring', bounce: 0.7 }} 
+            >
+              <Curtain colorOnHover={'#F26C4F'} />
+              {recipeData.cuisine}
+            </motion.span>
+            <motion.span 
+              className='recipepage__mealtype'
+              whileHover='animate'
+              initial='initial'
+              variants={scaleVars}
+              transition={{ type: 'spring', bounce: 0.7 }} 
+            >
+              <Curtain colorOnHover={'#F26C4F'} />
+              {recipeData.meal_type}
+            </motion.span>
           </span>
           <span className="recipepage__timetocook">
             время приготовления - {recipeData.time_to_cook} минут
@@ -65,7 +93,9 @@ export default function RecipePage() {
               recipeData.ingridients.map(ingridient => {
                 return (
                   <motion.div 
-                    whileHover={{ scale: 1.05 }}
+                    initial="initial" 
+                    whileHover='animate'
+                    variants={scaleVars}
                     transition={{ type: 'spring', bounce: 0.7 }} 
                     className='recipepage__ingridient' 
                     key={ingridient.id}
