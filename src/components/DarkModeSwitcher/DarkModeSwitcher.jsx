@@ -3,6 +3,7 @@ import { useState } from "react"
 import './DarkModeSwitcher.scss'
 import sun from '/sun.svg'
 import moon from '/moon.svg'
+import { motion } from "framer-motion"
 
 export default function DarkModeSwitcher() {
   
@@ -12,7 +13,8 @@ export default function DarkModeSwitcher() {
     localStorage.setItem('theme', appTheme)
   }, [appTheme])
 
-  const themeHandler = () => {
+  const themeHandler = (e) => {
+    e.stopPropagation()
     if(appTheme === 'light') {
       setAppTheme('dark')
     } else {
@@ -23,9 +25,9 @@ export default function DarkModeSwitcher() {
   document.body.dataset.theme = appTheme
 
   return (
-    <div onClick={() => themeHandler()} className="switcher">
-      <div className={`switcher__round ${appTheme === 'dark' ? 'active' : ''}`}>
-      </div>
+    <div onClick={(e) => themeHandler(e)} className="switcher">
+      <motion.div layout transition={{type: "spring", duration: 0.5, bounce: 0.5}} className={`switcher__round ${appTheme === 'dark' ? 'active' : ''}`}>
+      </motion.div>
         {appTheme === 'light' ? (
           <img className="switcher__icon switcher__icon--sun" src={sun} alt="" />
         ) : (

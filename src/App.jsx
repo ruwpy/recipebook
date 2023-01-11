@@ -58,7 +58,6 @@ export default function App() {
       <header className="header">
         <Search />
         <Navbar />
-        <DarkModeSwitcher />
       </header>
       <Main>
         <Routes>

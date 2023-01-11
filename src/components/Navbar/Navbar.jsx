@@ -1,45 +1,80 @@
 import './Navbar.scss'
-import addrecipe from '/addrecipe.svg'
-import book from '/book.svg'
-import userIcon from '/user.svg'
 import { NavLink } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import LoginModal from '../LoginModal/LoginModal'
 import { useState } from 'react'
+import search from '/search.svg'
+import { motion } from 'framer-motion'
+import DarkModeSwitcher from '../DarkModeSwitcher/DarkModeSwitcher'
+
+const sidebar = {
+  open: (height = 1000) => ({
+    clipPath: `circle(${height * 2 + 200}px at -20px 10px)`,
+    transition: {
+      type: "spring",
+      stiffness: 150,
+      damping: 40
+    }
+  }),
+  closed: {
+    clipPath: "circle(0px at -20px 10px)",
+    transition: {
+      type: "spring",
+      stiffness: 250,
+      damping: 40
+    }
+  }
+};
 
 export default function Navbar() {
 
-  const user = useSelector(state => state.user)
-  const [isLoginModalActive, setIsLoginModalActive] = useState(false)
+  const user = useSelector(state => state.user.userData)
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
-  async function openLoginModal() {
-    setIsLoginModalActive(true)
+  const openNavHandler = () => {
+    if (isNavOpen) {
+      setTimeout(() => {
+        setIsNavOpen(false)
+      }, 250)
+    } else {
+      setIsNavOpen(true)
+    }
   }
 
   return (
     <>
-      <nav className="nav">
-        <div className="nav__menu">
-          <NavLink to='/'>
-            <img className='nav__link-image' src={book} alt="recipe book icon" />
-          </NavLink>
-          {
-            user.userData ? (
-              <NavLink to='/profile'>
-                <img className='nav__link-image' src={userIcon} alt="add recipe icon" />
-              </NavLink>
-            ) : (
-              <span className='nav__link' onClick={() => openLoginModal()}>
-                <img className='nav__link-image' src={userIcon} alt="add recipe icon" />
-              </span>
-            )
-          }
-          <NavLink to='/createrecipe'>
-            <img className='nav__link-image' src={addrecipe} alt="add recipe icon" />
-          </NavLink>
-        </div>
-      </nav>
-      <LoginModal isLoginModalActive={isLoginModalActive} setIsLoginModalActive={setIsLoginModalActive} />
+      <motion.nav animate={isNavOpen ? 'open' : 'closed'} className="nav">
+        <motion.div className="nav__menu">
+          <motion.span className={`nav__burger ${isNavOpen ? 'active' : ''}`} onClick={() => openNavHandler()}>
+            <motion.span 
+              variants={{ open: {rotate: 45, translateY: 7.5}, closed: {rotate: 0, translateY: 0} }}
+              transition={{type: 'spring', stiffness: 50}}
+              />
+            <motion.span 
+              variants={{ open: {opacity: 0, left: '1rem'}, closed: {opacity: 1} }} 
+              transition={{duration: 0.3}}
+              />
+            <motion.span 
+              variants={{ open: {rotate: -45, translateY: -7}, closed: {rotate: 0, translateY: 0} }}
+              transition={{type: 'spring', stiffness: 50}}
+            />
+          </motion.span>
+          <span className='nav__search'>
+            <img className='nav__search--image' src={search} alt="" />
+          </span>
+        </motion.div>
+        <motion.div 
+          variants={sidebar}
+          onClick={() => openNavHandler()} 
+          className='nav__bg'
+        >
+          <div className="nav__links">
+            <NavLink to='/' className={`nav__link ${({isActive}) => isActive ? 'active' : undefined}`}>Главная</NavLink>
+            <NavLink to='/profile' className={`nav__link ${({ isActive }) => isActive ? 'active' : undefined}`}>Профиль</NavLink>
+            <NavLink to='/createrecipe' className={`nav__link ${({ isActive }) => isActive ? 'active' : undefined}`}>Создать рецепт</NavLink>
+            <DarkModeSwitcher />
+          </div>
+        </motion.div>
+      </motion.nav>
     </>
   )
 }
