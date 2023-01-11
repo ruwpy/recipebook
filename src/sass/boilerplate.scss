@@ -18,7 +18,6 @@ body {
   font-weight: 500;
   transition: all 150ms;
 
-
   &::-webkit-scrollbar {
     width: 15px;
   }
@@ -38,6 +37,7 @@ body {
 
   ::selection {
     background: var(--color-light-red);
+    color: var(--content-color);
   }
 }
 
@@ -73,6 +73,10 @@ p, h1, h2, h3 {
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
 textarea {
   resize: none;
   height: 8rem;
@@ -88,7 +92,7 @@ textarea {
   width: 100%;
   max-width: 1360px;
   margin-inline: auto;
-  padding-inline: 2rem;
+  padding: 8rem 2rem;
 }
 
 .heading {
