@@ -1,6 +1,7 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+  overflow-y: scroll;
 }
 
 *, *::before, *::after {
@@ -107,7 +108,13 @@ textarea {
 
 .hide-for-mobile {
   @media screen and (max-width: 768px) {
-    display: none;
+    display: none !important;
+  }
+}
+
+.hide-for-desktop {
+  @media screen and (min-width: 768px) {
+    display: none !important;
   }
 }
 
@@ -118,6 +125,10 @@ textarea {
 .buttons {
   display: flex;
   gap: 1rem;
+
+  &.column {
+    flex-direction: column;
+  }
 }
 
 .grid {
