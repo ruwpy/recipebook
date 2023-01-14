@@ -8,6 +8,7 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import Curtain from '../../components/Curtain/Curtain'
 import arrow from '/arrow.svg'
 import { AnimatePresence } from 'framer-motion'
+import { useNavigationType } from 'react-router-dom'
 
 const scaleVars = {
   initial: {
@@ -22,6 +23,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function RecipePage() {
 
+  const navigationType = useNavigationType()
   const navigate = useNavigate()
   const { scrollY } = useScroll()
   const y = useTransform(scrollY, [0, 500], ['0%', '50%'])
@@ -50,7 +52,7 @@ export default function RecipePage() {
     <Loading />
   ) : (
     <div className="recipepage">
-      <span onClick={() => navigate('/profile')} className='recipepage__back'>
+      <span onClick={() => navigate('/profile')} className={`recipepage__back ${navigationType === 'PUSH' ? 'active' : ''}`}>
         <img src={arrow} alt="left arrow icon" />
       </span>
       <div className="recipepage__top">
