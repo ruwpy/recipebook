@@ -6,14 +6,28 @@ import { supabase } from '../../supabase'
 import Loading from '../../components/Loading/Loading'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Curtain from '../../components/Curtain/Curtain'
+import arrow from '/arrow.svg'
+import { AnimatePresence } from 'framer-motion'
+
+const scaleVars = {
+  initial: {
+    scale: 1
+  },
+  animate: {
+    scale: 1.05
+  }
+}
+
+import { useNavigate } from 'react-router-dom'
 
 export default function RecipePage() {
 
+  const navigate = useNavigate()
   const { scrollY } = useScroll()
-  
   const y = useTransform(scrollY, [0, 500], ['0%', '50%'])
   const {id} = useParams()
   const [recipeData, setRecipeData] = useState('')
+  const [isIngridientsVisible, setIsIngridientsVisible] = useState(true)
 
   useEffect(() => {
     async function getRecipe() {
@@ -32,21 +46,13 @@ export default function RecipePage() {
     getRecipe()
   }, [])
 
-  console.log(recipeData);
-
-  const scaleVars = {
-    initial: {
-      scale: 1
-    },
-    animate: {
-      scale: 1.05
-    }
-  }
-
   return !recipeData ? (
     <Loading />
   ) : (
     <div className="recipepage">
+      <span onClick={() => navigate('/profile')} className='recipepage__back'>
+        <img src={arrow} alt="left arrow icon" />
+      </span>
       <div className="recipepage__top">
         <motion.div style={{y}}>
           <img
@@ -87,7 +93,77 @@ export default function RecipePage() {
         </div>
       </div>
       <div className="recipepage__container container">
-        <div className="recipepage__container--left">
+        <div className="recipepage__selector hide-for-desktop">
+          <span 
+            onClick={() => setIsIngridientsVisible(true)} 
+            className={isIngridientsVisible ? 'active' : ''}
+          >
+            ингредиенты
+          </span>
+          <span 
+            onClick={() => setIsIngridientsVisible(false)} 
+            className={!isIngridientsVisible ? 'active' : ''}
+          >
+            инструкция
+          </span>
+          <motion.div 
+            layout 
+            transition={{type: "spring", duration: 0.5, bounce: 0.3}}
+            className={`recipepage__selector--bg ${!isIngridientsVisible ? 'active' : ''}`}
+          />
+        </div>
+        <AnimatePresence onExitComplete>
+          <div className="recipepage__content hide-for-desktop">
+            {
+              isIngridientsVisible ? (
+                <motion.div 
+                  className="recipepage__ingridients"
+                  layout 
+                  transition={{type: "spring", duration: 0.5, bounce: 0.3}}
+                >
+                  {
+                    recipeData.ingridients.map(ingridient => {
+                      return (
+                        <motion.div
+                          initial="initial"
+                          whileHover='animate'
+                          variants={scaleVars}
+                          transition={{ type: 'spring', bounce: 0.7 }}
+                          className='recipepage__ingridient'
+                          key={ingridient.id}
+                        >
+                          <span className='recipepage__ingridient--dot' />{ingridient.value} {ingridient.name}
+                        </motion.div>
+                      )
+                    })
+                  }
+                </motion.div>
+              ) : (
+                <motion.div 
+                  className='recipepage__instructions'
+                  layout 
+                  transition={{type: "spring", duration: 0.5, bounce: 0.3}}
+                >
+                  {
+                    recipeData.instructions.map(instruction => {
+                      return (
+                        <div className='recipepage__instruction' key={instruction.id}>
+                          <span className='recipepage__instruction--number'>
+                            {instruction.id}
+                          </span>
+                          <span className='recipepage__instruction--value'>
+                            {instruction.value}
+                          </span>
+                        </div>
+                      )
+                    })
+                  }
+                </motion.div>
+              )
+            }
+          </div>
+        </AnimatePresence>
+        <div className="recipepage__container--left hide-for-mobile">
           <div className="recipepage__ingridients">
             {
               recipeData.ingridients.map(ingridient => {
@@ -107,7 +183,7 @@ export default function RecipePage() {
             }
           </div>
         </div>
-        <div className="recipepage__container--right">
+        <div className="recipepage__container--right hide-for-mobile">
           <div className='recipepage__instructions'>
             {
               recipeData.instructions.map(instruction => {
