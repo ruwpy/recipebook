@@ -1,99 +1,56 @@
 .recipe {
   display: flex;
   flex-direction: column;
-  gap: 0rem;
   padding: 1rem;
-  background: var(--color-white);
+  background: var(--background-color);
   border-radius: 20px;
   cursor: pointer;
   position: relative;
+  transition: background 150ms;
+  text-align: center;
 
+  &:hover &__title {
+    color: var(--color-light-red);
+  }
+  
   &__container {
     position: relative;
   }
   
   &__image {
     height: 30rem;
-    width: 100%;
+    width: 30rem;
     object-fit: cover;
-    border-radius: 15px;
+    border-radius: 30px;
+    background: var(--content-color);
   }
 
   &__title {
-    margin: 1rem 0 0.25rem;
-    font-weight: 600;
+    margin: 0.5rem 0 0.5rem;
+    font-weight: 700;
+    font-size: 2.2rem;
+    transition: color 250ms;
+    letter-spacing: 0.5px;
   }
 
-  &__author {
-    font-size: 1.4rem;
-    opacity: 0.75;
-    margin-bottom: 1rem;
-  }
-
-  &__bottom {
+  &__time {
     display: flex;
-    justify-content: space-between;
-    font-size: 1.4rem;
     align-items: center;
-    opacity: 0.75;
-    font-weight: 600;
+    justify-content: center;
+    gap: 0.5rem;
+    opacity: 0.6;
+    font-weight: 400;
   }
-  
-  &__rating {
-    display: inline-flex;
-    justify-content: end;
-    gap: 1rem;
-
-    > span {
-      display: flex;
-      align-items: center;
-    }
-  }
-
-  &__favorite {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-  }
-
-  &__add {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    
-    &--icon {
-      top: 0rem;
-      right: 0rem;
-      position: absolute;
-      width: 4rem;
-      height: 4rem;
-      padding: 0.25rem;
-      border-radius: 15px;
-      background: var(--color-white);
-      transition: transform 50ms;
-
-      &.hidden {
-        display: none;
-      }
-
-      &.not-added {
-        &:active {
-          transform: scale(1.2);
-        }
-      }
-
-    }
-  }
-
 
   &__hot {
     position: absolute;
     bottom: 1.5rem;
     right: 1.5rem;
-    background: var(--color-white);
+    background: var(--background-color);
     border-radius: 50px;
     line-height: 0;
     padding: 0.7rem;
+    transition: background 150ms;
 
     &:hover > span {
       opacity: 1;
