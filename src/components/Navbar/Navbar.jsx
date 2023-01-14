@@ -12,7 +12,6 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { clearUserdata } from '../../store/slices/userSlice';
 import userIcon from '/user.svg'
-import { useScroll, useMotionValueEvent } from 'framer-motion'
 
 const sidebar = {
   open: {
@@ -24,7 +23,7 @@ const sidebar = {
     },
   },
   closed: {
-    top: '-100%',
+    top: '-120%',
     transition: {
       type: "spring",
       stiffness: 300,
@@ -68,12 +67,6 @@ export default function Navbar() {
       console.log(error);
     }
   }
-
-  const { scrollY } = useScroll()
-
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    console.log("Page scroll: ", latest)
-  })
 
   return (
     <>

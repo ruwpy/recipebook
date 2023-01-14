@@ -29,19 +29,26 @@
     border-radius: 30px;
     padding: 1rem;
     top: 1.5rem;
-    left: 15rem;
+    left: 5rem;
     cursor: pointer;
-    animation: appearMobile 250ms ease-in-out;
     transition: transform 200ms;
+    
+    &.active {
+      left: 15rem;
+      animation: appearMobile 250ms ease-in-out;
+    }
 
     &:hover {
       transform: translateX(-0.5rem);
     }
 
     @media screen and (min-width: 768px) {
-      animation: appearDesktop 250ms ease-in-out;
-      left: 17.5rem;
       top: 3rem;
+      &.active {
+        left: 17.5rem;
+        top: 3rem;
+        animation: appearDesktop 250ms ease-in-out;
+      }
     }
 
     > img {
@@ -143,6 +150,7 @@
     overflow: hidden;
     font-weight: 500;
     transition: color 200ms;
+    user-select: none;
 
     &:hover {
       color: var(--color-white);

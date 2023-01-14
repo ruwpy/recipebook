@@ -18,9 +18,9 @@
   flex-direction: column;
   gap: 3rem;
   text-align: center;
-  background: var(--background-color);
   border-radius: 30px;
   user-select: text;
+  padding-inline: 2rem;
 
     &--initial {
       padding: 4rem 5rem;
