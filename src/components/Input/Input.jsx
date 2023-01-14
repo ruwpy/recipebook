@@ -1,7 +1,7 @@
 import { useState } from "react"
 import './Input.scss'
 
-export default function Input({inputValue, setInputValue, name, placeholder, type, id}) {
+export default function Input({inputValue, setInputValue, name, placeholder, id, maxLength}) {
 
   const [isActive, setIsActive] = useState(false)
 
@@ -15,7 +15,7 @@ export default function Input({inputValue, setInputValue, name, placeholder, typ
         onChange={(e) => setInputValue(e.target.value)}
         onFocus={() => setIsActive(true)}
         onBlur={() => setIsActive(false)}
-        maxLength={256}
+        maxLength={maxLength ? maxLength : 256}
         itemID={id}
       />
       <label htmlFor={name} className={`input__label${isActive || inputValue ? ' active' : ''}`}>

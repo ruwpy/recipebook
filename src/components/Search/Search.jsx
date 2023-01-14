@@ -1,5 +1,5 @@
 import './Search.scss'
-import lupa from '/lupa.svg'
+import search from '/search.svg'
 import Filter from '../Filter/Filter'
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
@@ -39,7 +39,7 @@ export default function Navbar() {
           value={inputValue}
           placeholder='поиск рецептов'
         />
-        <img onClick={() => searchHandle()} className={`search__confirm ${inputValue ? 'active' : ''}`} src={lupa} alt="arrow to right" />
+        <img onClick={() => searchHandle()} className={`search__confirm ${inputValue ? 'active' : ''}`} src={search} alt="arrow to right" />
       </div>
     </div>
   )

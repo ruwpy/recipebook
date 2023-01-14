@@ -26,8 +26,11 @@ export default function DarkModeSwitcher() {
 
   return (
     <div onClick={(e) => themeHandler(e)} className="switcher">
-      <motion.div layout transition={{type: "spring", duration: 0.5, bounce: 0.5}} className={`switcher__round ${appTheme === 'dark' ? 'active' : ''}`}>
-      </motion.div>
+      <motion.div 
+        layout 
+        transition={{type: "spring", duration: 0.5, bounce: 0.5}} 
+        className={`switcher__round ${appTheme === 'dark' ? 'active' : ''}`} 
+      />
         {appTheme === 'light' ? (
           <img className="switcher__icon switcher__icon--sun" src={sun} alt="" />
         ) : (

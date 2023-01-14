@@ -14,7 +14,7 @@ export default function CreateRecipePage() {
   ) : (
     user ? (
       <>
-        <div className="createrecipe">
+        <div className="createrecipe container">
           <h2 className='heading'>Добавьте рецепт</h2>
           <RecipeForm user={user} />
         </div>
