@@ -27,10 +27,6 @@
     margin-bottom: 3rem;
     font-weight: 300;
   }
-
-  &__button {
-    width: 22rem;
-  }
   
   &__bg {
     position: fixed;
@@ -62,7 +58,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 55%;
+    top: 60%;
 
     @media screen and (min-width: 1440px) {
       bottom: inherit;
