@@ -1,0 +1,11 @@
+.recipespage {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &__recipes {
+    width: fit-content;
+    margin-inline: auto;
+  }
+}

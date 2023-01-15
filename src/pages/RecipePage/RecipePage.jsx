@@ -52,7 +52,7 @@ export default function RecipePage() {
     <Loading />
   ) : (
     <div className="recipepage">
-      <span onClick={() => navigate('/profile')} className={`recipepage__back ${navigationType === 'PUSH' ? 'active' : ''}`}>
+      <span onClick={() => navigate('/recipes')} className={`recipepage__back ${navigationType === 'PUSH' ? 'active' : ''}`}>
         <img src={arrow} alt="left arrow icon" />
       </span>
       <div className="recipepage__top">

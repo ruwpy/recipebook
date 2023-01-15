@@ -1,4 +1,4 @@
-import './Recipes.scss'
+import './RecipesPage.scss'
 import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom';
 import Loading from '../../components/Loading/Loading';
@@ -14,8 +14,8 @@ export default function RecipesPage() {
       <Loading />
     ) : (
     <>
-      <div className="profile container">
-        <div className="profile__recipes">
+      <div className="recipespage container">
+        <div className="recipespage__recipes">
           <Recipes
             type='local'
           />

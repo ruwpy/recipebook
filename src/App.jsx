@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux/es/hooks/useDispatch";
 import { setUser } from "./store/slices/userSlice";
 import CreateRecipePage from "./pages/CreateRecipePage/CreateRecipePage";
-import Profile from "./pages/Profile/Profile";
+import RecipesPage from "./pages/RecipesPage/RecipesPage";
 import { supabase } from "./supabase";
 import RecipePage from "./pages/RecipePage/RecipePage";
 import Main from "./components/Main/Main";
@@ -58,7 +58,7 @@ export default function App() {
       <Main>
         <Routes>
           <Route path='/' element={<Landing />} />
-          <Route path='/profile' element={<Profile />} />
+          <Route path='/recipes' element={<RecipesPage />} />
           <Route path='/createrecipe' element={<CreateRecipePage />} />
           <Route path='/recipe/:id' element={<RecipePage />} />
         </Routes>
