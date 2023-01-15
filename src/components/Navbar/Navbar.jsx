@@ -51,10 +51,8 @@ export default function Navbar() {
   }
 
   const openLoginModalHandler = (e) => {
-    if (!Object.keys(user).length > 1) {
-      e.stopPropagation()
-      setIsLoginModalActive(true)
-    }
+    e.stopPropagation()
+    setIsLoginModalActive(true)
   }
 
   const logoutHandler = async () => {
@@ -67,6 +65,8 @@ export default function Navbar() {
       console.log(error);
     }
   }
+
+  console.log(!!Object.keys(user).length > 1);
 
   return (
     <>
