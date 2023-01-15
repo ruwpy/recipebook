@@ -129,7 +129,7 @@ export default function Navbar() {
             {
               Object.keys(user).length > 1 ? (
                 <NavLink 
-                  to='/profile' 
+                  to='/recipes' 
                   className={`nav__link ${({ isActive }) => isActive ? 'active' : undefined}`}
                 >
                   Ваши рецепты
