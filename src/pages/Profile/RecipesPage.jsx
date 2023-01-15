@@ -1,11 +1,10 @@
-import './Profile.scss'
+import './Recipes.scss'
 import { useSelector } from 'react-redux'
 import { Navigate } from 'react-router-dom';
 import Loading from '../../components/Loading/Loading';
-import { useState } from 'react';
 import Recipes from '../../components/Recipes/Recipes';
 
-export default function Profile() {
+export default function RecipesPage() {
   
   const isLoading = useSelector(state => state.user.isLoading)
   const isUserLogin = localStorage.getItem('sb-fddqymmrolabclbttaxr-auth-token')
